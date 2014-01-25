@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700italic,400italic,700' rel='stylesheet' type='text/css'>
+    <style>
+     * { margin: 0; padding: 0; }
+     body { font-family: 'Karla', sans-serif; height: 100%;}
+     article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block; }
+     header {
+       margin: 50px auto 25px;
+       display: block;
+       position: fixed;
+       width: 100%;
+       height: 50px;
+       top:0;
+       z-index: 2;
+     }
+
+     canvas {
+       position: absolute;
+       top: 0;
+       left 0;
+       z-index:-1;
+     }
+
+     footer {
+       text-align: center;
+       margin: 25px auto 50px;
+     }
+
+     h1 { text-align: center; }
+
+     h2, h3 { margin: 10px auto; }
+
+     #main {
+       margin-top: 200px;
+       padding: 100px;
+     }
+
+     #resources {
+       border-top: thin solid #444;
+       padding-top: 15px;
+       margin-top: 25px;
+     }
+
+     .general {
+       margin: 0 auto 50px;
+     }
+
+     a {
+       color: black;
+       text-decoration: none;
+     }
+
+     a:hover {
+       text-decoration: underline;
+     }
+
+     ul {
+       list-style-type: none;
+     }
+
+     ::selection { background: #111; color: whitesmoke; }
+     ::-moz-selection {background: #111; color: whitesmoke; }
+    </style>
+
+    <script>
+     window.onload = function(){
+
+       // Random link color on hover
+
+       var colors = ["rgb(79, 169, 240)", "rgb(189, 108, 212)", "rgb(243, 134, 134)", "rgb(255, 241, 140)"], links = document.getElementsByTagName("a");
+
+       for (var i = 0; i < links.length; i++) {
+         addHoverStyle(i);
+       }
+
+       function addHoverStyle(i){
+         links[i].addEventListener("mouseover", function() {
+           links[i].style.color = colors[Math.floor(Math.random() * colors.length)];
+         }, false);
+
+         links[i].addEventListener("mouseout", function() {
+           links[i].style.color = 'black';
+         }, false);
+       }
+
+       // Canvas stuff
+
+       var canvas = document.getElementById("canvas"),
+       body = document.body,
+       html = document.documentElement,
+       height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+       canvas.width = window.innerWidth;
+       canvas.height = height;
+
+       var ctx = canvas.getContext("2d"), mx, my;
+
+       document.body.addEventListener("mousemove", function(e){
+         if (e.pageX && e.pageY) {
+           mx = e.pageX;
+           my = e.pageY;
+         } else {
+           mx = e.clientX + document.body.scrollLeft;
+           my = e.clientY + document.body.scrollTop;
+         }
+
+         if (mx < 0) mx = 0;
+         if (my < 0) my = 0;
+         ctx.fillStyle = "#" + Math.floor(Math.random() * 16777215).toString(16);
+         ctx.beginPath();
+         ctx.moveTo(mx, my);
+         ctx.arc(mx, my, 1, 0, Math.PI * 2, false)
+         ctx.fill();
+
+       }, false);
+
+       document.body.addEventListener("click", function(e){
+         canvas.width = canvas.width;
+       },false)
+
+     }
+    </script>
+  </head>
+  <body>
+
+    <canvas id="canvas">
+    </canvas>
+
+    <header>
+      <h1>Core Lab: Interaction</h1>
+    </header>
+
+    <section id="main">
+
+      <p class="general">This is the course website for <strong>Core Lab: Interaction (Section F)</strong>, taught by Jonathan Vingiano in Spring 2014 at Parsons The New School for Design. This is where you can find general resources and weekly assignments.</p>
+
+      <div id="week-1">
+        <h2>Week 1</h2>
+        <p>TBA</p>
+      </div>
+
+      <div id="resources">
+        <h3>HTML & CSS Guides</h3>
+
+        <ul id="guides">
+          <li><a href="http://www.dontfeartheinternet.com/"><em>Don't Fear the Internet</em> by Jessica Hische & Russ Maschmeyer</a></li>
+          <li><a href="http://fortuito.us/diveintohtml5/"><em>Dive Into HTML5</em> by Mark Pligrim</a></li>
+          <li><a href="https://github.com/styleguide/templates">Github's Markup Styleguide</a>
+          <li><a href="https://github.com/styleguide/css">Github's CSS Styleguide</a>
+        </ul>
+
+        <h3>Design Inspiration</h3>
+        <ul id="inspo">
+          <li><a href="http://hoverstat.es">Hover States</a></li>
+          <li><a href="http://www.ecogex.com/delectable/">Delectable</a></li>
+          <li><a href="http://siteinspire.com">Site Inspire</a></li>
+        </ul>
+
+        <h3>Course Materials</h3>
+        <ul id="materials">
+          <li><a href="">Syllabus</a></li>
+          <li><a href="mailto:vingianj@newschool.edu">Email Jonathan</a></li>
+          <li><a href="mailto:roussoe@newschool.edu">Email Eli</a></li>
+        </ul>
+      </div>
+
+    </section>
+
+    <footer>
+      Core Lab: Interaction | I-909 @ <a href="https://maps.google.com/maps/ms?msid=206635705174176170652.00049fcdbd47c2a5e9b26&msa=0">55 West 13th Street</a> | Thursdays from 7 - 9:40
+    </footer>
+
+  </body>
+</html>
