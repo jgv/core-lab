@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <title>Core Lab: Interaction</title>
     <link href='http://fonts.googleapis.com/css?family=Karla:400,700italic,400italic,700' rel='stylesheet' type='text/css'>
     <style>
      * { margin: 0; padding: 0; }
@@ -20,7 +21,7 @@
        position: absolute;
        top: 0;
        left 0;
-       z-index:-1;
+       z-index: -1;
      }
 
      footer {
@@ -30,7 +31,8 @@
 
      h1 { text-align: center; }
 
-     h2, h3 { margin: 10px auto; }
+     h2, h3, h4 { margin: 10px auto; }
+
 
      #main {
        margin-top: 200px;
@@ -43,8 +45,12 @@
        margin-top: 25px;
      }
 
-     .general {
+     .description {
        margin: 0 auto 50px;
+     }
+
+     .topics-covered {
+       padding-left: 20px
      }
 
      a {
@@ -60,8 +66,20 @@
        list-style-type: none;
      }
 
-     ::selection { background: #111; color: whitesmoke; }
-     ::-moz-selection {background: #111; color: whitesmoke; }
+     p {
+       margin: 10px auto;
+     }
+
+     ::selection {
+       background: #111;
+       color: whitesmoke;
+     }
+
+     ::-moz-selection {
+       background: #111;
+       color: whitesmoke;
+     }
+
     </style>
 
     <script>
@@ -88,6 +106,7 @@
        // Canvas stuff
 
        var canvas = document.getElementById("canvas"),
+       ctx = canvas.getContext("2d"),
        body = document.body,
        html = document.documentElement,
        height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
@@ -95,9 +114,8 @@
        canvas.width = window.innerWidth;
        canvas.height = height;
 
-       var ctx = canvas.getContext("2d"), mx, my;
-
        document.body.addEventListener("mousemove", function(e){
+         var mx, my;
          if (e.pageX && e.pageY) {
            mx = e.pageX;
            my = e.pageY;
@@ -118,15 +136,14 @@
 
        document.body.addEventListener("click", function(e){
          canvas.width = canvas.width;
-       },false)
+       }, false);
 
      }
     </script>
   </head>
   <body>
 
-    <canvas id="canvas">
-    </canvas>
+    <canvas id="canvas"></canvas>
 
     <header>
       <h1>Core Lab: Interaction</h1>
@@ -134,28 +151,63 @@
 
     <section id="main">
 
-      <p class="general">This is the course website for <strong>Core Lab: Interaction (Section F)</strong>, taught by Jonathan Vingiano in Spring 2014 at Parsons The New School for Design. This is where you can find general resources and weekly assignments.</p>
+      <p class="description">This is the course website for <strong>Core Lab: Interaction (Section F)</strong>, taught by Jonathan Vingiano in Spring 2014 at Parsons The New School for Design. This is where you can find general resources and weekly assignments.</p>
 
       <div id="week-1">
         <h2>Week 1</h2>
-        <p>TBA</p>
+        <p>Welcome to Core Lab! In our first session we'll cover:
+        <ul class="topics-covered">
+          <li>Introduction to HTML</li>
+          <li>Page structure</li>
+          <li>What is a server?</li>
+          <li>Uploading a file using FTP</li>
+        </ul>
+
+        <h4>Homework</h4>
+
+        <ul class="homework-list">
+          <li>Watch all of <a href="http://dontfeartheinternet.com">Don't Fear the Internet</a></li>
+        </ul>
+
       </div>
 
       <div id="resources">
-        <h3>HTML & CSS Guides</h3>
+        <h3>Recommended & Required Reading</h3>
 
         <ul id="guides">
           <li><a href="http://www.dontfeartheinternet.com/"><em>Don't Fear the Internet</em> by Jessica Hische & Russ Maschmeyer</a></li>
           <li><a href="http://fortuito.us/diveintohtml5/"><em>Dive Into HTML5</em> by Mark Pligrim</a></li>
-          <li><a href="https://github.com/styleguide/templates">Github's Markup Styleguide</a>
-          <li><a href="https://github.com/styleguide/css">Github's CSS Styleguide</a>
+          <li><a href="http://www.amazon.com/gp/product/1118008189/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1118008189&linkCode=as2&tag=wsiw-20"><em>HTML and CSS: Design and Build Websites</em> by Jon Duckett</a></li>
+          <li><a href="https://github.com/styleguide/templates">Github's Markup Styleguide</a></li>
+          <li><a href="https://github.com/styleguide/css">Github's CSS Styleguide</a></li>
+          <li><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></li>
+          <li><a href="http://www.phptherightway.com/">PHP: The Right Way</a></li>
         </ul>
 
-        <h3>Design Inspiration</h3>
-        <ul id="inspo">
+        <h3>Design Resources</h3>
+        <ul id="design-resources">
           <li><a href="http://hoverstat.es">Hover States</a></li>
           <li><a href="http://www.ecogex.com/delectable/">Delectable</a></li>
           <li><a href="http://siteinspire.com">Site Inspire</a></li>
+          <li><a href="http://www.vvork.com/">VVORK</a></li>
+          <li><a href="http://www.linedandunlined.com/">Lined & Unlined</a></li>
+          <li><a href="http://copypastecharacter.com/">Copy Paste Character</a></li>
+          <li><a href="http://alistapart.com/">A List Apart</a></li>
+        </ul>
+
+        <h3>Development Resources</h3>
+        <ul id="dev-resources">
+          <li><a href="http://discover-devtools.codeschool.com/">Discover Devtools</a></li>
+          <li><a href="http://stackoverflow.com/">Stack Overflow</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a></li>
+          <li><a href="http://jsbin.com/">JSBin</a></li>
+          <li><a href="http://jsfiddle.net/">JSFiddle</a></li>
+        </ul>
+
+        <h3>Software</h3>
+        <ul id="software">
+          <li><a href="http://www.sublimetext.com/">Sublime Text (Text Editor)</a></li>
+          <li><a href="http://cyberduck.io/">Cyberduck (FTP Client)</a></li>
         </ul>
 
         <h3>Course Materials</h3>
@@ -164,6 +216,7 @@
           <li><a href="https://jonathanvingiao.com/core-lab/syllabus/syllabus.pdf">Syllabus (PDF)</a></li>
           <li><a href="mailto:vingianj@newschool.edu">Email Jonathan</a></li>
           <li><a href="mailto:roussoe@newschool.edu">Email Eli</a></li>
+          <li><a href="mailto:varss576@newschool.edu">Email Shahrouz</a></li>
         </ul>
       </div>
 
