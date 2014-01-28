@@ -1,0 +1,80 @@
+* { margin: 0; padding: 0; }
+     body { font-family: 'Karla', sans-serif; height: 100%;}
+     article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block; }
+     header {
+       margin: 50px auto 25px;
+       display: block;
+       position: fixed;
+       width: 100%;
+       height: 50px;
+       top:0;
+       z-index: 2;
+     }
+
+     canvas {
+       position: absolute;
+       top: 0;
+       left 0;
+       z-index: -1;
+     }
+
+     footer {
+       text-align: center;
+       margin: 25px auto 50px;
+     }
+
+     h1 { text-align: center; }
+
+     h2, h3, h4 { margin: 10px auto; }
+
+
+     #main {
+       margin-top: 200px;
+       padding: 100px;
+     }
+
+     #syllabus {
+      margin-top: 200px;
+      padding: 200px;
+     }
+
+     #resources {
+       border-top: thin solid #444;
+       padding-top: 15px;
+       margin-top: 25px;
+     }
+
+     .description {
+       margin: 0 auto 50px;
+     }
+
+     .topics-covered {
+       padding-left: 20px
+     }
+
+     a {
+       color: black;
+       text-decoration: none;
+     }
+
+     a:hover {
+       text-decoration: underline;
+     }
+
+     ul {
+       list-style-type: none;
+     }
+
+     p {
+       margin: 10px auto;
+     }
+
+     ::selection {
+       background: #111;
+       color: whitesmoke;
+     }
+
+     ::-moz-selection {
+       background: #111;
+       color: whitesmoke;
+     }
